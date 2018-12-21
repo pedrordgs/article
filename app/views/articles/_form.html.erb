@@ -1,10 +1,10 @@
 <%=form_with model:@article, local:true do |form| %>
   <%if @article.errors.any? %>
     <div id="save_error">
-      <h2><%=pluralize(@article.erros.count,"error")%> prohibited this article from being saved:
+      <h2><%=pluralize(@article.errors.count,"error")%> prohibited this article from being saved:
       </h2>
       <ul>
-        <% @article.errors.full_message.each do |msg| %>
+        <% @article.errors.full_messages.each do |msg| %>
           <li><%=msg %></li>
         <%end%>
       </ul>
@@ -20,7 +20,6 @@
      <%=form.radio_button :category, "Other" %>Other
   </p>
   <p><%=form.label :text %><br><%=form.text_area :text %></p>
-  <p><%=form.label :author %><br><%=form.text_field :author %></p>
   <p><%=form.submit %></p>
 <%end%>
 

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+  before_action :require_user, except: [:index,:show]
   def index
     @articles=Article.all
   end
@@ -44,5 +44,5 @@ end
 
 private
   def article_params
-    params.require(:article).permit(:title,:category,:text,:author)
+    params.require(:article).permit(:title,:category,:text).merge(:author => @current_user.username)
   end

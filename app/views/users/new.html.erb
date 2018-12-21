@@ -1,0 +1,8 @@
+<h2>Sign Up</h2>
+<%=form_for(@user) do |form| %>
+  <p><%=form.text_field :username, :placeholder =>"Username" %></p>
+  <p><%=form.password_field :password, :placeholder =>"Password (min. 8 characters)" %></p>
+  <p><%=form.password_field :password_confirmation, :placeholder =>"Confirm Password" %></p>
+  <%=form.submit "Create an account", class: "btn-submit" %>
+<%end%>
+

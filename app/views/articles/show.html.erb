@@ -6,5 +6,10 @@
 <%=render @article.comments %>
 <h2> Add a comment:</h2>
 <%=render 'comments/form' %>
-<p><%=link_to 'Edit', edit_article_path(@article)%></p>
+<%if current_user %>
+  <%if current_user==@article.author %>
+    <p><%=link_to 'Edit', edit_article_path(@article)%></p>
+    <p><%=link_to 'Delete', article_path(@article),method: :delete, data:{confirm: 'Are you sure?'} %></p>
+  <%end%>
+<%end%>
 <p><%=link_to 'See all articles', articles_path %></p>
