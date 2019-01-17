@@ -1,0 +1,26 @@
+p
+  strong Title:
+  br
+  = @article.title
+p
+  strong Category:
+  br
+  = @article.category
+p
+  strong Text:
+  br
+  = @article.text
+p
+  strong Author:
+  br
+  = @article.author
+h2 Comments
+=render @article.comments
+h2 Add a comment:
+=render 'comments/form'
+
+- if current_user
+  - if current_user.username==@article.author
+    p =link_to 'Edit', edit_article_path(@article)
+    p =link_to 'Delete', article_path(@article),method: :delete, data:{confirm: 'Are you sure?'}
+p =link_to 'See all articles', articles_path

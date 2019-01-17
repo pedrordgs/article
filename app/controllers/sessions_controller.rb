@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+  
+  def index
+    redirect_to '/login'
+  end
+
   def new
     if current_user
       redirect_to '/'

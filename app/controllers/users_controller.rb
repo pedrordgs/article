@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
   def new
     if current_user
-      redirect_to '/'
+     redirect_to '/'
     else
       @user=User.new
     end
+  end
+
+  def index
+    redirect_to '/signup'
   end
 
   def create 
@@ -13,7 +17,7 @@ class UsersController < ApplicationController
       session[:user_id]=@user.id
       redirect_to '/'
     else
-      redirect_to '/signup'
+      render :new
     end
   end
 

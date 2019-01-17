@@ -1,0 +1,22 @@
+h1 Listing articles
+ 
+table
+  tr
+    th Title
+    th Category
+    th Text
+    th Author
+ 
+  - @articles.each do |article|
+    tr
+      td = article.title
+      td = article.category
+      td = article.text
+      td = article.author
+      td = link_to 'Show', article_path(article)
+      -if current_user
+        -if current_user.username==article.author
+          td = link_to 'Edit', edit_article_path(article)
+          td = link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}
+
+p = link_to 'New Article', new_article_path

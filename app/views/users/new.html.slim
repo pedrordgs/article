@@ -1,0 +1,9 @@
+- if @user.errors.any?
+  - @user.errors.full_messages.each do |msg|
+    = msg
+h2 Sign Up
+=form_for(@user) do |form|
+  p=form.text_field :username, :placeholder =>"Username"
+  p=form.password_field :password, :placeholder =>"Password (min. 8 characters)"
+  p=form.submit "Create an account", class: "btn-submit"
+
