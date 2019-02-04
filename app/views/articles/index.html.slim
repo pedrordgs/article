@@ -1,12 +1,18 @@
 h1 Listing articles
- 
+
+p = form_tag articles_path,:method => 'get' do
+ =text_field_tag :search, params[:search]
+ =submit_tag "Search", name: nil
+
+p = link_to 'Advanced Search', new_search_path
+
 table
   tr
     th Title
     th Category
     th Text
     th Author
- 
+
   - @articles.each do |article|
     tr
       td = article.title

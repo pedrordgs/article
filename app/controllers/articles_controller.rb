@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :require_user, except: [:index,:show]
+
+
   def index
-    @articles=Article.all
+    @articles = Article.search(params[:search])
   end
 
   def show
@@ -29,7 +31,7 @@ class ArticlesController < ApplicationController
     @article=Article.find(params[:id])
     if @article.update(article_params)
       redirect_to @article
-    else 
+    else
       render :edit
     end
   end

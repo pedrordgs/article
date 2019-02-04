@@ -1,8 +1,8 @@
 =form_with model:@article, local:true do |form|
   -if @article.errors.any?
     div id="save_error"
-      h2 
-        =pluralize(@article.errors.count,"error") 
+      h2
+        =pluralize(@article.errors.count,"error")
         | prohibited this article from being saved:
       ul
         -@article.errors.full_messages.each do |msg|
@@ -11,18 +11,18 @@
   p =form.label :title
   p =form.text_field :title
   p =form.label :category
-  p 
+  p
     =form.radio_button :category, "Food"
     |Food
-    =form.radio_button :category, "Animals" 
+    =form.radio_button :category, "Animals"
     |Animals
-    =form.radio_button :category, "Football" 
+    =form.radio_button :category, "Football"
     |Football
-    =form.radio_button :category, "News" 
+    =form.radio_button :category, "News"
     |News
-    =form.radio_button :category, "Tech" 
+    =form.radio_button :category, "Tech"
     |Tech
-    =form.radio_button :category, "Other" 
+    =form.radio_button :category, "Other"
     |Other
 
   p =form.label :text

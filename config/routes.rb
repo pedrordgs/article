@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :searches
+
   root 'welcome#hello'
 end
