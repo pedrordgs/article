@@ -1,20 +1,14 @@
+Ruby version '2.6.0'
 
-In develop
+Clone the repo with:
+```git clone https://github.com/pedrordgs/article.git```
 
-<!--* Ruby version
+Open the directory and type:
+```gem install bundle```
 
-* System dependencies
+Then you need to install de dependencies:
+```bunlde install```
 
-* Configuration
+Run ```rails db:migrate```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
+You can start a local server with ```rails server``` then open http://localhost:3000/
